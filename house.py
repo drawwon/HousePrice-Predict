@@ -22,10 +22,14 @@ from scipy.stats import norm, skew #for some statistics
 pd.set_option('display.float_format', lambda x: '{:.3f}'.format(x)) #Limiting floats output to 3 decimal points
 
 from subprocess import check_output
-print(check_output(["dir",'/b','input'],shell=True).decode('GBK')) #check the files available in the directory, only work on ubuntu
+# On Windows
+# print(check_output(["dir",'/b','input'],shell=True).decode('GBK')) #check the files available in the directory, only work on ubuntu
+# On Mac
+print(check_output(['ls','input']).decode('utf8'))
 
 train = pd.read_csv('./input/train.csv')
 test = pd.read_csv('./input/test.csv')
+
 # ##display the first five rows of the train dataset.
 # print(train.head(5))
 # ##display the first five rows of the test dataset.
